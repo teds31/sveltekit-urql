@@ -1,4 +1,5 @@
 <script>
+	// store and query initialization
 	import { operationStore, query } from '@urql/svelte';
 	export const authors = operationStore(
 		`
@@ -11,7 +12,6 @@
     `
 	);
 	query(authors);
-	console.log(authors);
 </script>
 
 <div>
@@ -23,7 +23,8 @@
 		<h2>No books</h2>
 	{:else}
 		{#each $authors.data.queryAuthor as author}
-			<a href="/authors/{author.id}">
+			<!-- <a sveltekit:prefetch href="/authors/{author.name.split(' ').join('-').toLowerCase()}"> -->
+			<a sveltekit:prefetch href="/authors/{author.id}">
 				<h3>{author.name}</h3>
 			</a>
 		{/each}

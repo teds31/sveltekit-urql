@@ -1,4 +1,5 @@
 <script>
+	// store and query initialization
 	import { operationStore, query } from '@urql/svelte';
 	export const books = operationStore(
 		`

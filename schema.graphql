@@ -3,9 +3,11 @@ type User {
   postedReviews: [Review] @hasInverse(field: postedBy)
 }
 type Author {
+  id: ID!
   name: String! @id
   description: String
   books: [Book] @hasInverse(field: author)
+  slug:String!
 }
 type Review {
   id: ID!

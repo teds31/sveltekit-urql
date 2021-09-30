@@ -3,9 +3,10 @@
 	export const authors = operationStore(
 		`
     {
-    queryAuthor {
-      name
-    }
+      queryAuthor {
+        id
+        name
+      }
     }
     `
 	);
@@ -22,7 +23,9 @@
 		<h2>No books</h2>
 	{:else}
 		{#each $authors.data.queryAuthor as author}
-			<h3>{author.name}</h3>
+			<a href="/authors/{author.id}">
+				<h3>{author.name}</h3>
+			</a>
 		{/each}
 	{/if}
 </div>
